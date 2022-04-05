@@ -50,7 +50,7 @@ class Employee:
        payment_info.update(net_de)
        payment_info['Net Pay'] = net_pay 
 
-       with open("Pay", 'w') as f:
+       with open("Pay Information", 'w') as f:
            for key, value in payment_info.items():
                f.write('%s:%s\n' %(key, value))
        return payment_info   
