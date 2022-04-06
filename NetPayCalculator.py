@@ -36,8 +36,7 @@ class Employee:
        
        tax_dic = self.calcTax(gross_p)       
        net_de = self.calcDeduc(tax_dic,gross_p)
-       net_pay = gross_p - net_de['Net Deductions']
-       
+       net_pay = gross_p - net_de['Net Deductions']     
        
 
        keys =['Name','Date','Regular Hours Worked','Overtime Hours Worked','Regular Rate',
@@ -88,7 +87,7 @@ class Employee:
         return tax
         
 
-'''class testEmployee(unittest.TestCase):
+class testEmployee(unittest.TestCase):
    def testNetLessEqualGross(self):
     e=Employee(12345,'Green','Joe ',37,16,1.5,72,710)
     pi=e.computePayment(1,'31/10/2021')
@@ -110,12 +109,11 @@ class Employee:
     e=Employee(12345,'Green','Joe ',37,16,1.5,72,710)
     pi=e.computePayment(-1,'31/10/2021')
     self.assertGreaterEqual(pi['Net Pay'], 0)
-'''    
+    
    
 
+unittest.main(argv=['ignored'],exit=False)
 jg= Employee(12345,'Green','Joe ',37,16,1.5,72,710)
 print(jg.computePayment(42,'31/10/2021'))
-
-unittest.main(argv=['ignored'],exit=False)
 
 
