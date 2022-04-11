@@ -17,3 +17,4 @@ Net Tax:70.8
 PRSI:28.48
 Net Deductions:99.28
 Net Pay:612.72
+

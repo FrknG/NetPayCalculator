@@ -1,6 +1,11 @@
 #Employee should have the following attributes:
 #StaffID, LastName, FirstName, RegHours, HourlyRate,
 #OTMultiple, TaxCredit, StandardBand,
+
+
+
+#https://github.com/FrknG/NetPayCalculator
+
 import unittest
 
 class Employee:
@@ -47,13 +52,15 @@ class Employee:
            payment_info[keys[i]] = values[i]
        payment_info.update(tax_dic)
        payment_info.update(net_de)
-       payment_info['Net Pay'] = net_pay 
+       payment_info['Net Pay'] = net_pay
 
-       with open("Pay Information", 'w') as f:
+       with open("Pay Information.txt", 'w') as f:
            for key, value in payment_info.items():
                f.write('%s:%s\n' %(key, value))
-       return payment_info   
+           f.write('\n')
+       return payment_info 
    
+         
     def calcTax(self,gross_p):
         tax_dic = {}
         s_ratepay = self.__band
@@ -94,7 +101,7 @@ class testEmployee(unittest.TestCase):
     self.assertLessEqual(pi['Net Pay'], pi['Gross Pay'])
    def testOvertime(self):
     e=Employee(12345,'Green','Joe ',37,16,1.5,72,710)
-    pi=e.computePayment(-1,'31/10/2021')
+    pi=e.computePayment(10,'31/10/2021')
     self.assertGreaterEqual(pi['Overtime Hours Worked'], 0)
     self.assertGreaterEqual(pi['Overtime Pay'], 0)
    def testRegularHours(self):
@@ -115,5 +122,7 @@ class testEmployee(unittest.TestCase):
 unittest.main(argv=['ignored'],exit=False)
 jg= Employee(12345,'Green','Joe ',37,16,1.5,72,710)
 print(jg.computePayment(42,'31/10/2021'))
+
+
 
 
